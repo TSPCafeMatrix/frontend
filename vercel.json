@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/cafe-lab/browser",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

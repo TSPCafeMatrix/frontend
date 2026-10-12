@@ -573,10 +573,6 @@ export class RoastProfileListComponent implements OnInit {
     this.applyFilters();
   }
 
-  compareProfiles(): void {
-    void this.router.navigate(['/compare-profile']);
-  }
-
   loadCoffeeLots(): void {
     forkJoin({
       catalog: this.coffeeLotApi.getAll().pipe(
