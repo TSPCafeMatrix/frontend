@@ -21,6 +21,10 @@ import { SesionesCataComponent } from './cupping-session/presentation/views/sesi
 import { ViewNewDefectLibraryEntryComponent } from './defect-library/presentation/views/view-new-defect-library-entry/view-new-defect-library-entry.component';
 import { ViewEditDefectLibraryEntryComponent } from './defect-library/presentation/views/view-edit-defect-library-entry/view-edit-defect-library-entry.component';
 import { ViewDefectLibraryDetailComponent } from './defect-library/presentation/views/view-defect-library-detail/view-defect-library-detail.component';
+import { RecipeListComponent } from './preparation/presentation/views/recipe-list/recipe-list.component';
+import { CreateRecipeComponent } from './preparation/presentation/views/create-recipe/create-recipe.component';
+import { PortfolioDetailComponent } from './preparation/presentation/views/portfolio-detail/portfolio-detail.component';
+import { RecipeDetailComponent } from './preparation/presentation/views/recipe-detail/recipe-detail.component';
 import { EditProfileSessionPageComponent } from './auth/presentation/views/edit-profile-session-page/edit-profile-session-page.component';
 import { ChangePlanComponent } from './subscription/presentation/components/change-plan/change-plan.component';
 import { ConfirmChangePlanComponent } from './subscription/presentation/components/confirm-change-plan/confirm-change-plan.component';
@@ -47,6 +51,16 @@ export const routes: Routes = [
   { path: 'new-defect', component: ViewNewDefectLibraryEntryComponent, canActivate: [AuthGuard] },
   { path: 'edit-defect/:id', component: ViewEditDefectLibraryEntryComponent, canActivate: [AuthGuard] },
   { path: 'file/:id', component: ViewDefectLibraryDetailComponent, canActivate: [AuthGuard] },
+  {
+    path: 'preparation',
+    children: [
+      { path: 'recipes', component: RecipeListComponent, canActivate: [AuthGuard] },
+      { path: 'recipes/create', component: CreateRecipeComponent, canActivate: [AuthGuard] },
+      { path: 'recipes/:id', component: RecipeDetailComponent, canActivate: [AuthGuard] },
+      { path: 'recipes/edit/:id', component: CreateRecipeComponent, canActivate: [AuthGuard] },
+      { path: 'portfolios/:id', component: PortfolioDetailComponent, canActivate: [AuthGuard] },
+    ],
+  },
   { path: 'dashboard/owner', component: OwnerDashboardComponent, canActivate: [AuthGuard] },
   { path: 'dashboard/complete', component: CompleteDashboardComponent, canActivate: [AuthGuard] },
   { path: 'suppliers', component: SupplyPageComponent, canActivate: [AuthGuard] },
